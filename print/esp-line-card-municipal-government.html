@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ESP — Municipal & Government Line Card</title>
+<style>
+  :root{
+    --navy-deep:#0a1626;
+    --navy-panel:#122843;
+    --navy-panel-2:#0f2038;
+    --blue-bright:#2f9bea;
+    --blue-mid:#1e7fc9;
+    --blue-light:#7fd0f7;
+    --ink:#0f2138;
+    --paper:#ffffff;
+    --gray:#4a5568;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:#dfe4ea;font-family:'Segoe UI',Arial,Helvetica,sans-serif;}
+  .sheet-wrap{display:flex;flex-direction:column;align-items:center;gap:28px;padding:28px 0 60px;}
+  .page{
+    width:8.5in;height:11in;background:var(--paper);position:relative;overflow:hidden;
+    box-shadow:0 8px 30px rgba(0,0,0,.25);
+  }
+  .hex-bg{
+    position:absolute;inset:0;opacity:.12;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'><g fill='none' stroke='%232f9bea' stroke-width='1'><path d='M28 0 56 16 56 48 28 64 0 48 0 16Z'/><path d='M28 32.5 56 48.5 56 80.5 28 96.5 0 80.5 0 48.5Z'/></g></svg>");
+    background-size:80px 138px;
+  }
+  .hex-bg.dark{opacity:.10;}
+
+  /* ---------- PAGE 1 ---------- */
+  #p1{background:linear-gradient(180deg,#f4f7fb 0%, #ffffff 55%);}
+  .p1-hexcorner{position:absolute;top:0;right:0;width:5.2in;height:4.6in;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'><g fill='none' stroke='%23c9d6e3' stroke-width='1'><path d='M28 0 56 16 56 48 28 64 0 48 0 16Z'/><path d='M28 32.5 56 48.5 56 80.5 28 96.5 0 80.5 0 48.5Z'/></g></svg>");
+    background-size:64px 110px;opacity:.55;
+  }
+  .p1-hexcorner-fade{position:absolute;top:0;right:0;width:5.2in;height:4.6in;
+    background:linear-gradient(225deg, rgba(244,247,251,0) 0%, rgba(244,247,251,.55) 35%, #f4f7fb 65%);
+  }
+  .brand-row{position:relative;z-index:2;display:flex;align-items:center;gap:14px;padding:.55in .6in 0 .6in;}
+  .brand-mark{font-size:34px;font-weight:800;letter-spacing:1px;
+    background:linear-gradient(100deg,#0f2138 10%, var(--blue-bright) 75%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .brand-sub{font-size:9.5px;letter-spacing:2.5px;color:var(--gray);font-weight:600;margin-top:2px;}
+  .brand-line{flex:1;height:3px;border-radius:3px;background:linear-gradient(90deg,var(--blue-mid),var(--blue-light) 70%,transparent);}
+
+  .hero{position:relative;z-index:2;padding:.55in .6in 0 .6in;}
+  .eyebrow{display:inline-block;background:var(--navy-deep);color:#fff;font-size:10.5px;font-weight:700;
+    letter-spacing:2px;padding:6px 14px;border-radius:20px;margin-bottom:18px;}
+  .eyebrow span{color:var(--blue-light);}
+  h1.hero-title{font-size:44px;line-height:1.06;margin:0 0 6px 0;color:var(--ink);font-weight:800;letter-spacing:-.5px;}
+  h1.hero-title em{font-style:normal;
+    background:linear-gradient(100deg,var(--blue-mid), var(--blue-bright) 60%, var(--blue-light));
+    -webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero-rule{width:70px;height:5px;border-radius:4px;background:linear-gradient(90deg,var(--blue-mid),var(--blue-light));margin:14px 0 16px;}
+  .hero-desc{font-size:14px;line-height:1.55;color:var(--gray);max-width:4.6in;margin-bottom:22px;}
+
+  .cap-list{list-style:none;margin:0 0 26px 0;padding:0;columns:2;column-gap:26px;max-width:4.9in;}
+  .cap-list li{display:flex;align-items:flex-start;gap:9px;font-size:13.5px;font-weight:700;color:var(--ink);
+    margin-bottom:12px;break-inside:avoid;}
+  .chk{flex:0 0 auto;width:20px;height:20px;border-radius:50%;background:linear-gradient(160deg,var(--blue-bright),var(--blue-mid));
+    display:flex;align-items:center;justify-content:center;box-shadow:0 2px 5px rgba(31,127,201,.35);}
+  .chk svg{width:11px;height:11px;}
+
+  .cert-badges{position:relative;z-index:2;display:flex;gap:10px;padding:0 .6in;margin-bottom:20px;}
+  .badge{border:1.6px solid var(--blue-mid);color:var(--blue-mid);font-size:11px;font-weight:700;letter-spacing:1px;
+    padding:6px 14px;border-radius:20px;}
+
+  .audience-row{position:relative;z-index:2;margin:34px .6in 0 .6in;padding-top:26px;border-top:1px solid #e1e7ee;}
+  .audience-row .kicker{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--blue-mid);margin-bottom:16px;}
+  .audience-cards{display:flex;gap:16px;}
+  .audience-card{flex:1;background:#fff;border:1px solid #e6ebf1;border-radius:10px;padding:16px 16px 18px;
+    box-shadow:0 4px 14px rgba(15,33,56,.06);}
+  .audience-card .a-icon{width:36px;height:36px;border-radius:9px;background:linear-gradient(160deg,var(--blue-bright),var(--blue-mid));
+    display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+  .audience-card .a-icon svg{width:18px;height:18px;stroke:#fff;fill:none;}
+  .audience-card h4{margin:0 0 5px 0;font-size:12.5px;color:var(--ink);letter-spacing:.2px;}
+  .audience-card p{margin:0;font-size:11px;line-height:1.5;color:var(--gray);}
+
+  .strip{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(90deg,var(--navy-deep),var(--navy-panel-2));
+    padding:26px .6in 30px .6in;display:flex;justify-content:space-between;}
+  .strip .item{flex:1;text-align:center;color:#fff;}
+  .strip .icon{width:46px;height:46px;border-radius:50%;background:linear-gradient(160deg,var(--blue-bright),var(--blue-mid));
+    display:flex;align-items:center;justify-content:center;margin:0 auto 8px;box-shadow:0 3px 10px rgba(0,0,0,.3);}
+  .strip .icon svg{width:22px;height:22px;stroke:#fff;fill:none;}
+  .strip .label{font-size:11px;font-weight:700;line-height:1.3;}
+  .strip .divider{width:1px;background:rgba(255,255,255,.15);}
+  .foot-url{position:absolute;bottom:6px;left:0;right:0;text-align:center;font-size:9px;letter-spacing:3px;color:rgba(255,255,255,.55);}
+
+  /* ---------- PAGE 2 ---------- */
+  #p2{background:var(--navy-deep);color:#fff;}
+  .p2-pad{position:relative;z-index:2;padding:.55in .6in;}
+  h2.section-title{font-size:26px;font-weight:800;margin:0 0 10px 0;letter-spacing:-.3px;}
+  .section-bar{display:inline-block;background:linear-gradient(90deg,var(--blue-mid),var(--blue-bright));
+    color:#fff;font-size:11px;font-weight:700;letter-spacing:1.5px;padding:6px 14px;border-radius:3px;margin-bottom:18px;}
+  .lead{font-size:12.5px;line-height:1.6;color:#c7d4e2;max-width:6.9in;margin-bottom:22px;}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px;}
+  .cat-card{background:var(--navy-panel);border-left:3px solid var(--blue-bright);border-radius:8px;padding:14px 16px;}
+  .cat-card .cat-head{display:flex;align-items:center;gap:9px;margin-bottom:8px;}
+  .cat-card .cat-icon{width:26px;height:26px;border-radius:50%;background:rgba(47,155,234,.18);
+    display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .cat-card .cat-icon svg{width:14px;height:14px;stroke:var(--blue-light);fill:none;}
+  .cat-card .cat-title{font-size:12px;font-weight:700;letter-spacing:.3px;color:#fff;}
+  .cat-card .cat-body{font-size:11.2px;line-height:1.5;color:#c7d4e2;}
+  .cat-card .cat-body b{color:#fff;font-weight:600;}
+
+  .roles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px;}
+  .role-card{background:var(--navy-panel-2);border-radius:8px;padding:16px;border-top:3px solid var(--blue-bright);}
+  .role-card .role-icon{width:34px;height:34px;border-radius:50%;background:linear-gradient(160deg,var(--blue-bright),var(--blue-mid));
+    display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+  .role-card .role-icon svg{width:17px;height:17px;stroke:#fff;fill:none;}
+  .role-card h3{font-size:12.5px;margin:0 0 8px 0;color:#fff;letter-spacing:.2px;}
+  .role-card ul{margin:0;padding:0;list-style:none;}
+  .role-card li{font-size:10.3px;line-height:1.5;color:#c7d4e2;margin-bottom:7px;padding-left:14px;position:relative;}
+  .role-card li:before{content:"";position:absolute;left:0;top:5px;width:6px;height:6px;border-radius:50%;background:var(--blue-light);}
+
+  .quote-box{background:var(--navy-panel);border-left:4px solid var(--blue-bright);border-radius:6px;
+    padding:16px 20px;margin-bottom:20px;}
+  .quote-box .small{font-size:12px;color:#c7d4e2;margin-bottom:8px;}
+  .quote-box .big{font-size:16px;font-weight:800;color:#fff;line-height:1.35;}
+
+  .footer-bar{position:absolute;left:0;right:0;bottom:0;background:var(--navy-panel-2);padding:16px .6in;
+    text-align:center;border-top:1px solid rgba(255,255,255,.08);}
+  .footer-bar .certs{font-size:12px;font-weight:700;letter-spacing:1px;color:#fff;margin-bottom:4px;}
+  .footer-bar .contact{font-size:10.5px;color:var(--blue-light);letter-spacing:.4px;}
+  .footer-tagline{position:absolute;left:0;right:0;bottom:64px;text-align:center;font-size:9px;
+    letter-spacing:2px;color:rgba(255,255,255,.4);}
+
+  @media print{
+    html,body{background:#fff;}
+    .sheet-wrap{gap:0;padding:0;}
+    .page{box-shadow:none;page-break-after:always;}
+  }
+  @page{size:8.5in 11in;margin:0;}
+</style>
+</head>
+<body>
+<div class="sheet-wrap">
+
+  <!-- PAGE 1 -->
+  <div class="page" id="p1">
+    <div class="hex-bg"></div>
+    <div class="p1-hexcorner"></div>
+    <div class="p1-hexcorner-fade"></div>
+
+    <div class="brand-row">
+      <div>
+        <div class="brand-mark">ESP</div>
+        <div class="brand-sub">ENGINEERED SYSTEMS &amp; PRODUCTS</div>
+      </div>
+      <div class="brand-line"></div>
+    </div>
+
+    <div class="hero">
+      <span class="eyebrow">MUNICIPAL &amp; GOVERNMENT <span>LINE CARD</span></span>
+      <h1 class="hero-title">Fluid Handling for<br>Water &amp; Wastewater<br><em>Authorities &amp; Public Agencies</em></h1>
+      <div class="hero-rule"></div>
+      <p class="hero-desc">
+        Pumps, blowers, valves, and instrumentation for treatment plants, lift stations, and
+        public facilities — backed by stocked inventory, factory-trained field technicians, and
+        engineered or-equal packages matched to your project drawings. Serving Northern Virginia,
+        Maryland, Delaware, and North Carolina since 1981.
+      </p>
+
+      <ul class="cap-list">
+        <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Pumps &amp; Lift Stations</li>
+        <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Aeration Blowers</li>
+        <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Valves &amp; Actuation</li>
+        <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Instrumentation</li>
+        <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Mechanical Seals</li>
+        <li><span class="chk"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Service &amp; Repair</li>
+      </ul>
+    </div>
+
+    <div class="cert-badges">
+      <div class="badge">SWaM CERTIFIED</div>
+      <div class="badge">VETERAN-OWNED</div>
+    </div>
+
+    <div class="audience-row">
+      <div class="kicker">BUILT FOR EVERYONE WHO TOUCHES THE PLANT</div>
+      <div class="audience-cards">
+        <div class="audience-card">
+          <div class="a-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4l-3.3 3.3-2-2z" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <h4>Maintenance &amp; Operations</h4>
+          <p>Stocked inventory and factory-trained field technicians, so a down pump or blower
+            doesn't stay down.</p>
+        </div>
+        <div class="audience-card">
+          <div class="a-icon"><svg viewBox="0 0 24 24"><path d="M4 19h16M6 19V9l4-3 4 3v10M14 19v-6h4v6" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <h4>Plant &amp; Facility Engineers</h4>
+          <p>Or-equal packages matched to your drawings, plus in-house fabrication when a
+            standard product doesn't fit.</p>
+        </div>
+        <div class="audience-card">
+          <div class="a-icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" stroke-width="1.6"/><path d="M8 14l2.5 2.5L16 11" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h4>Plant Managers &amp; Superintendents</h4>
+          <p>One regional partner since 1981 across pumps, blowers, valves, and
+            instrumentation — SWaM Certified.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="strip">
+      <div class="item">
+        <div class="icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke-width="2"/><path d="M12 7v5l3 3" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <div class="label">Fast Field<br>Support</div>
+      </div>
+      <div class="divider"></div>
+      <div class="item">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6" stroke-width="2" stroke-linejoin="round"/></svg></div>
+        <div class="label">Local<br>Inventory</div>
+      </div>
+      <div class="divider"></div>
+      <div class="item">
+        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 5 5.6.5-4.2 3.8 1.3 5.5L12 14l-5.1 2.8 1.3-5.5L4 8.5 9.6 8z" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        <div class="label">Or-Equal<br>Packages</div>
+      </div>
+      <div class="divider"></div>
+      <div class="item">
+        <div class="icon"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="16" rx="2" stroke-width="2"/><path d="M3.5 9.5h17M8 2.5v4M16 2.5v4" stroke-width="2" stroke-linecap="round"/><circle cx="8.2" cy="14" r="1.1" fill="#fff" stroke="none"/><circle cx="12" cy="14" r="1.1" fill="#fff" stroke="none"/><circle cx="15.8" cy="14" r="1.1" fill="#fff" stroke="none"/></svg></div>
+        <div class="label">Since<br>1981</div>
+      </div>
+    </div>
+    <div class="foot-url">WWW.ESP-RICHMOND.COM</div>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page" id="p2">
+    <div class="hex-bg dark"></div>
+    <div class="p2-pad">
+
+      <h2 class="section-title">Represented Lines</h2>
+      <div class="section-bar">EQUIPMENT FOR TREATMENT PLANTS &amp; PUBLIC FACILITIES</div>
+
+      <div class="grid">
+        <div class="cat-card">
+          <div class="cat-head">
+            <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 10.5a6 6 0 1 1-12 0C6 9.5 12 3 12 3z" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+            <div class="cat-title">PUMPS — WATER &amp; WASTEWATER</div>
+          </div>
+          <div class="cat-body">HCP Pumps America · EBARA · Grundfos · LMI · <b>US Vacuum</b></div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-head">
+            <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M3 12h9m0 0a4 4 0 1 0 4-4M12 12a4 4 0 1 1-4 4" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <div class="cat-title">BLOWERS — AERATION &amp; PROCESS AIR</div>
+          </div>
+          <div class="cat-body">Eurus Blowers · Roots</div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-head">
+            <div class="cat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2" stroke-width="1.8"/><path d="M12 2v3.5M12 18.5V22M22 12h-3.5M5.5 12H2M18.4 5.6l-2.5 2.5M8.1 15.9l-2.5 2.5M18.4 18.4l-2.5-2.5M8.1 8.1 5.6 5.6" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+            <div class="cat-title">VALVES &amp; ACTUATION</div>
+          </div>
+          <div class="cat-body">Cla-Val · Matco Norca · Beck · Bray</div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-head">
+            <div class="cat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke-width="1.8"/><path d="M12 12 16 9" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <div class="cat-title">INSTRUMENTATION</div>
+          </div>
+          <div class="cat-body">Reotemp · Kobold — flow, level, pressure</div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-head">
+            <div class="cat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" stroke-width="1.8"/><circle cx="12" cy="12" r="3.2" stroke-width="1.8"/></svg></div>
+            <div class="cat-title">MECHANICAL SEALS</div>
+          </div>
+          <div class="cat-body">Shark Seals · Sealflo — reliability &amp; leak prevention</div>
+        </div>
+        <div class="cat-card">
+          <div class="cat-head">
+            <div class="cat-icon"><svg viewBox="0 0 24 24"><path d="M12 4v16M8 8l4-4 4 4M8 16l4 4 4-4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <div class="cat-title">MIXING</div>
+          </div>
+          <div class="cat-body">Liquid Mix Agitators — chemical mixing &amp; flocculation</div>
+        </div>
+      </div>
+
+      <h2 class="section-title" style="font-size:20px;margin-top:4px;">Speaks to Everyone Who Touches the Plant</h2>
+      <p class="lead">From the wet well to the front office — the same represented lines and
+        capabilities above, organized around what each role needs first.</p>
+
+      <div class="roles">
+        <div class="role-card">
+          <div class="role-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4L4 17l3 3 5.3-5.3a4 4 0 0 1 5.4-5.4l-3.3 3.3-2-2z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <h3>MAINTENANCE &amp; OPERATIONS</h3>
+          <ul>
+            <li>Stocked inventory and field technicians serving the region since 1981</li>
+            <li>Factory-trained service, repair, and system optimization on all major brands</li>
+            <li>Genuine OEM and premium replacement parts, fast turnaround</li>
+          </ul>
+        </div>
+        <div class="role-card">
+          <div class="role-icon"><svg viewBox="0 0 24 24"><path d="M4 19h16M6 19V9l4-3 4 3v10M14 19v-6h4v6" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <h3>PLANT &amp; FACILITY ENGINEERS</h3>
+          <ul>
+            <li>Complete or-equal packages matched to your project drawings</li>
+            <li>In-house fabrication of adapters, transitions, and mounting fit-up</li>
+            <li>Early technical input and lunch-and-learns on pump &amp; blower fundamentals</li>
+          </ul>
+        </div>
+        <div class="role-card">
+          <div class="role-icon"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#fff" stroke-width="1.6"/><path d="M8 14l2.5 2.5L16 11" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>PLANT MANAGERS &amp; SUPERINTENDENTS</h3>
+          <ul>
+            <li>One regional partner across pumps, blowers, valves &amp; instrumentation</li>
+            <li>SWaM Certified — supports public procurement requirements</li>
+            <li>Substitution guarantee available on qualified bids</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="quote-box">
+        <div class="small">We start with how your system actually operates, then match the equipment to it.</div>
+        <div class="big">Easy to Work With.<br>Focused on Your Success.</div>
+      </div>
+
+    </div>
+    <div class="footer-tagline">SERVING VIRGINIA, MARYLAND, DELAWARE AND NORTH CAROLINA SINCE 1981</div>
+    <div class="footer-bar">
+      <div class="certs">SWaM CERTIFIED &nbsp;·&nbsp; VETERAN-OWNED</div>
+      <div class="contact">(804) 271-7200 &nbsp;·&nbsp; sales@esp-richmond.com &nbsp;·&nbsp; esp-richmond.com</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

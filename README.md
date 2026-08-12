@@ -2,11 +2,20 @@
 
 Public image host for Engineered Systems & Products marketing posts.
 
-Images in `images/` are served over HTTPS at:
+Everything here is served over HTTPS:
 
 ```
 https://engineered-systems-products.github.io/esp-marketing-assets/images/<filename>
+https://engineered-systems-products.github.io/esp-marketing-assets/print/<filename>
 ```
+
+- **`images/`** — raster images that can be posted to social. Keep this folder for postable
+  images only: the CRM derives a post's Instagram URL from `images/` plus the attached file's
+  name, so anything else in here is noise.
+- **`print/`** — brochures, line cards, and other documents. Not postable as social images.
+
+Filenames are lowercase and hyphenated on purpose. Spaces and punctuation in a URL are a common
+cause of Meta silently failing to fetch an image.
 
 This exists because Instagram's Content Publishing API will only accept a publicly
 reachable image URL — it has no file-upload option. Hosting the images here keeps that
