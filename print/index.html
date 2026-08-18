@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ESP Line Cards</title>
+<style>
+  :root {
+    --navy: #0E2841;
+    --navy2: #16385A;
+    --blue: #0F9ED5;
+    --ink: #1A1A1A;
+    --muted: #5A6672;
+    --line: #D5DDE4;
+    --card: #F1F4F7;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Calibri, Arial, "Segoe UI", sans-serif;
+    color: var(--ink);
+    background: #FFFFFF;
+  }
+  header {
+    background: var(--navy);
+    padding: 2.2rem 1.5rem 1.8rem;
+  }
+  header .inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  header h1 {
+    font-family: Arial, sans-serif;
+    color: #FFFFFF;
+    font-size: 1.9rem;
+    margin: 0 0 0.4rem;
+  }
+  header p {
+    color: #AFC4D6;
+    margin: 0;
+    font-size: 1.05rem;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1.8rem 1.5rem 2.5rem;
+  }
+  .card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1.1rem 1.3rem;
+    margin-bottom: 0.9rem;
+  }
+  .card h2 {
+    font-family: Arial, sans-serif;
+    font-size: 1.05rem;
+    color: var(--navy);
+    margin: 0 0 0.25rem;
+  }
+  .card p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+  .card a {
+    flex-shrink: 0;
+    background: var(--blue);
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 0.85rem;
+    padding: 0.55rem 1.1rem;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+  .card a:hover { background: var(--navy2); }
+  footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1.5rem 2.5rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  @media (max-width: 480px) {
+    .card { flex-direction: column; align-items: flex-start; }
+    .card a { align-self: stretch; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="inner">
+    <h1>ESP Line Cards</h1>
+    <p>Engineered Systems &amp; Products &middot; pumps, blowers, motors and fire protection equipment</p>
+  </div>
+</header>
+<main>
+  <div class="card">
+    <div>
+      <h2>Industrial and Process</h2>
+      <p>Centrifugal, ANSI process, and severe-duty pumps, blowers, and motors.</p>
+    </div>
+    <a href="esp-line-card-industrial-process.pdf">View PDF</a>
+  </div>
+  <div class="card">
+    <div>
+      <h2>Municipal and Government</h2>
+      <p>Water and wastewater pumping, vertical turbines, and treatment plant equipment.</p>
+    </div>
+    <a href="esp-line-card-municipal-government.pdf">View PDF</a>
+  </div>
+  <div class="card">
+    <div>
+      <h2>Commercial and Institutional</h2>
+      <p>Domestic water boosters, HVAC pumps, and building equipment.</p>
+    </div>
+    <a href="esp-line-card-commercial-institutional.pdf">View PDF</a>
+  </div>
+  <div class="card">
+    <div>
+      <h2>Fire Protection</h2>
+      <p>Fire pump packages, controllers, and testing equipment.</p>
+    </div>
+    <a href="esp-line-card-fire-protection.pdf">View PDF</a>
+  </div>
+</main>
+<footer>
+  Engineered Systems &amp; Products, Inc. &middot; South Chesterfield, VA &middot; 804-271-7200
+</footer>
+</body>
+</html>
