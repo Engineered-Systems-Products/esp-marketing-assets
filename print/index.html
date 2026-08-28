@@ -22,23 +22,33 @@
     background: #FFFFFF;
   }
   header {
-    background: var(--navy);
-    padding: 2.2rem 1.5rem 1.8rem;
+    background: #FFFFFF;
+    padding: 1.8rem 1.5rem 1.6rem;
+    border-bottom: 4px solid transparent;
+    border-image: linear-gradient(90deg, var(--navy), var(--blue)) 1;
   }
   header .inner {
     max-width: 720px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+  }
+  header img.logo {
+    height: 62px;
+    width: auto;
+    flex-shrink: 0;
   }
   header h1 {
     font-family: Arial, sans-serif;
-    color: #FFFFFF;
-    font-size: 1.9rem;
-    margin: 0 0 0.4rem;
+    color: var(--navy);
+    font-size: 1.7rem;
+    margin: 0 0 0.25rem;
   }
   header p {
-    color: #AFC4D6;
+    color: var(--muted);
     margin: 0;
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
   main {
     max-width: 720px;
@@ -102,27 +112,17 @@
     .card { flex-direction: column; align-items: flex-start; }
     .card a { align-self: stretch; text-align: center; }
   }
-  header h1 {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-  }
-  .logo-badge {
-    height: 40px;
-    width: auto;
-    background: var(--card);
-    border: 1px solid var(--line);
-    padding: 5px 9px;
-    border-radius: 7px;
-    display: inline-block;
-  }
+
 </style>
 </head>
 <body>
 <header>
   <div class="inner">
-    <h1><img src="esp-logo.png" alt="ESP" class="logo-badge" width="1087" height="608"> Line Cards</h1>
-    <p>Engineered Systems &amp; Products &middot; pumps, blowers, motors and fire protection equipment</p>
+    <img src="esp-logo.png" alt="ESP - Engineered Systems &amp; Products" class="logo" width="1087" height="608">
+    <div>
+      <h1>Line Cards</h1>
+      <p>Engineered Systems &amp; Products &middot; pumps, blowers, motors and fire protection equipment</p>
+    </div>
   </div>
 </header>
 <main>
