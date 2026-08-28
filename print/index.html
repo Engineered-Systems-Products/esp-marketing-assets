@@ -102,16 +102,37 @@
     .card { flex-direction: column; align-items: flex-start; }
     .card a { align-self: stretch; text-align: center; }
   }
+  header h1 {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .logo-badge {
+    height: 40px;
+    width: auto;
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 5px 9px;
+    border-radius: 7px;
+    display: inline-block;
+  }
 </style>
 </head>
 <body>
 <header>
   <div class="inner">
-    <h1>ESP Line Cards</h1>
+    <h1><img src="esp-logo.png" alt="ESP" class="logo-badge" width="1087" height="608"> Line Cards</h1>
     <p>Engineered Systems &amp; Products &middot; pumps, blowers, motors and fire protection equipment</p>
   </div>
 </header>
 <main>
+  <div class="card">
+    <div>
+      <h2>General Company Brochure</h2>
+      <p>Full capabilities overview &mdash; company background, all product lines, and services.</p>
+    </div>
+    <a href="esp-brochure-design-preview-final-draft-2-1.pdf">View PDF</a>
+  </div>
   <div class="card">
     <div>
       <h2>Industrial and Process</h2>
